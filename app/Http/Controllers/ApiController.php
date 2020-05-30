@@ -55,7 +55,7 @@ class ApiController extends Controller
      */
     public function update(Request $request, Api $api)
     {
-        $api = Api::find($api);
+        $api = Api::find($api->id);
         $api->name = $request->name;
         $api->save();
         return response()->json();
@@ -69,7 +69,7 @@ class ApiController extends Controller
      */
     public function destroy(Api $api)
     {
-        $api = Api::find($api);
+        $api = Api::find($api->id);
         $api->delete();
         return response()->json();
     }
